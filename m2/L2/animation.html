@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .animated-box {
+            width: 150px;
+            height: 150px;
+            background-color: #3498db;
+            border-radius: 10px;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* This is where the animation property is applied */
+            animation: pulse-and-move 4s ease-in-out infinite alternate;
+        }
+
+        /* Define the keyframes for the animation */
+        @keyframes pulse-and-move {
+            0% {
+                transform: scale(1);
+                background-color: #3498db;
+                border-radius: 10px;
+            }
+            50% {
+                transform: scale(1.1) translateX(50px);
+                background-color: #e74c3c;
+                border-radius: 50%;
+            }
+            100% {
+                transform: scale(1);
+                background-color: #3498db;
+                border-radius: 10px;
+            }
+        }
+
+        /* A second example for a simple loading spinner */
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animated-box">
+        Animate Me!
+    </div>
+
+    <div class="spinner"></div>
+
+</body>
+</html>
