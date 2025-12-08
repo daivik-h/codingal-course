@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple calculater</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <h1>simply calculator </h1>
+    
+    <p>We are using the Numbers 21 and 4 for these Oprations</p>
+
+
+    <button type="button" class="btn btn-primary" onclick="calculateSum1()">ADD</button>
+    <button type="button" class="btn btn-secondary" onclick="calculateSum2()">SUBTRACT</button>
+    <button type="button" class="btn btn-success" onclick="calculateSum3()">MULTIPLY</button>
+    <button type="button" class="btn btn-danger" onclick="calculateSum4()">DIVIDE</button>
+
+    <p id="output"></p>
+
+
+    <script>
+        var a = 21
+        var b = 4
+
+
+
+
+
+        function calculateSum1() {
+            document.getElementById("output").innerHTML = "The sum of " + a + " and " + b + " is " + (a + b);
+        }
+
+        function calculateSum2() {
+            document.getElementById("output").innerHTML = "The subtraction of " + a + " and " + b + " is " + (a - b);
+        }
+
+
+        function calculateSum3() {
+            document.getElementById("output").innerHTML = "The multiplication of " + a + " and " + b + " is " + (a * b);
+        }
+
+
+        function calculateSum4() {
+            document.getElementById("output").innerHTML = "The division of " + a + " and " + b + " is " + (a / b);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
