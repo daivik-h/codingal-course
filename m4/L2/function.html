@@ -18,9 +18,9 @@
 
 
     <button type="button" class="btn btn-primary" onclick="calculateSum1()">ADD</button>
-    <button type="button" class="btn btn-secondary" onclick="calculateSum2()">SUBTRACT</button>
-    <button type="button" class="btn btn-success" onclick="calculateSum3()">MULTIPLY</button>
-    <button type="button" class="btn btn-danger" onclick="calculateSum4()">DIVIDE</button>
+    <button type="button" class="btn btn-secondary" onclick="calculateSub()">SUBTRACT</button>
+    <button type="button" class="btn btn-success" onclick="calculatemul()">MULTIPLY</button>
+    <button type="button" class="btn btn-danger" onclick="calculatedivison()">DIVIDE</button>
 
     <p id="output"></p>
 
@@ -37,17 +37,17 @@
             document.getElementById("output").innerHTML = "The sum of " + a + " and " + b + " is " + (a + b);
         }
 
-        function calculateSum2() {
+        function calculateSub() {
             document.getElementById("output").innerHTML = "The subtraction of " + a + " and " + b + " is " + (a - b);
         }
 
 
-        function calculateSum3() {
+        function calculatemul() {
             document.getElementById("output").innerHTML = "The multiplication of " + a + " and " + b + " is " + (a * b);
         }
 
 
-        function calculateSum4() {
+        function calculatedivison() {
             document.getElementById("output").innerHTML = "The division of " + a + " and " + b + " is " + (a / b);
         }
 
