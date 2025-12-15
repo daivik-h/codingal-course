@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>trigonometric in JS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Trigronometric values</h1>
+    <p>We are using 45 degrees</p>
+    <p id="trigonometry"></p>
+    <button type="button" class="btn btn-primary" onclick="sin()">Sin</button>
+    <button type="button" class="btn btn-secondary" onclick="cos()">cos</button>
+    <button type="button" class="btn btn-success" onclick="tan()">tan</button>
+    <p id="output"></p>
+
+    <script>
+        function sin() {
+            var angle = 30;
+            var radians = angle * (Math.PI / 180);
+            var sineValue = Math.sin(radians);
+            document.getElementById("output").innerHTML = "The sine of " + angle + " degrees is " + sineValue;
+        }
+
+        function cos() {
+            var angle = 60;
+            var radians = angle * (Math.PI / 180);
+            var cosineValue = Math.cos(radians);
+            document.getElementById("output").innerHTML = "The cosine of " + angle + " degrees is " + cosineValue;
+        }
+
+        function tan() {
+            var angle = 45;
+            var radians = angle * (Math.PI / 180);
+            var tangentValue = Math.tan(radians);
+            document.getElementById("output").innerHTML = "The tangent of " + angle + " degrees is " + tangentValue;
+        }
+    
+
+             
+    </script>
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
