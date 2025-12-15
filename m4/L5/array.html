@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array IN JS</title>
+</head>
+<body>
+    <h1>Array in JavaScript</h1>
+    <p>This example demonstrates basic array operations in JavaScript.</p>
+
+    <button onclick="createArray()">Create Array</button>
+    <button onclick="accessElement()">Access Element</button>
+    <button onclick="modifyElement()">Modify Element</button>
+    <button onclick="arrayLength()">Array Length</button>
+
+    <p id="output"></p>
+
+    <script>
+        let myArray = [];
+
+        function createArray() {
+            myArray = ["Apple", "Banana", "Cherry"];
+            document.getElementById("output").innerHTML = "Array created: " + myArray.join(", ");
+        }
+
+        function accessElement() {
+            if (myArray.length > 0) {
+                document.getElementById("output").innerHTML = "First element: " + myArray[0];
+            } else {
+                document.getElementById("output").innerHTML = "Array is empty. Please create the array first.";
+            }
+        }
+
+        function modifyElement() {
+            if (myArray.length > 0) {
+                myArray[1] = "Blueberry";
+                document.getElementById("output").innerHTML = "Modified array: " + myArray.join(", ");
+            } else {
+                document.getElementById("output").innerHTML = "Array is empty. Please create the array first.";
+            }
+        }
+
+        function arrayLength() {
+            document.getElementById("output").innerHTML = "Array length: " + myArray.length;
+        }
+    </script>
+</body>
+</html>
