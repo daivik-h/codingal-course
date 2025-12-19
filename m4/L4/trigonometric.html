@@ -11,15 +11,15 @@
 
 <body>
     <h1>Trigronometric values</h1>
-    <p>We are using 45 degrees</p>
+    <p>We are using 30,60,45 degrees respectively</p>
     <p id="trigonometry"></p>
-    <button type="button" class="btn btn-primary" onclick="sin()">Sin</button>
+    <button type="button" class="btn btn-primary" onclick="sine()">Sine</button>
     <button type="button" class="btn btn-secondary" onclick="cos()">cos</button>
     <button type="button" class="btn btn-success" onclick="tan()">tan</button>
     <p id="output"></p>
 
     <script>
-        function sin() {
+        function sine() {
             var angle = 30;
             var radians = angle * (Math.PI / 180);
             var sineValue = Math.sin(radians);
