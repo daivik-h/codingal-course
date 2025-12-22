@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time based greeting</title>
+</head>
+
+<body>
+    <h1>Time based greeting</h1>
+
+    
+    <script>
+        const now = new Date();
+        const hours = now.getHours();
+        let greeting;
+
+        if (hours < 12) {
+            greeting = "Good morning!";
+        } else if (hours < 18) {
+            greeting = "Good afternoon!";
+        } else if (hours < 20) {
+            greeting = "Good evening!";
+        } else if (hours <= 22) {
+            greeting = "Good night!";
+        } else {
+            greeting = "It's late, consider resting!";
+        }
+
+        document.write(`<p>${greeting}</p>`);
+    </script>
+</body>
+
+</html>
