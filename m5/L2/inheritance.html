@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance in JS</title>
+</head>
+
+<body>
+    <h1>Inheritance in JS</h1>
+    <p id="output"></p>
+    <p id="price"></p>
+    <p id="ebook-output"></p>
+    <script>
+        class Book {
+            constructor(title, author, price) {
+                this.title = title;
+                this.author = author;
+                this.price = price;
+            }
+
+            getDetails() {
+                return `${this.title} by ${this.author} costs $${this.price}`;
+            }
+            static comparePrices(bookA, bookB) {
+                return bookA.price - bookB.price;
+            }
+        }
+        class EBook extends Book {
+            constructor(title, author, price, fileSize) {
+                super(title, author, price);
+                this.fileSize = fileSize; // in MB
+            }
+
+            getDetails() {
+                return `${super.getDetails()} and has a file size of ${this.fileSize}MB`;
+            }
+        }
+        const book1 = new Book("1984", "George Orwell", 15);
+
+        const book2 = new Book("To Kill a Mockingbird", "Harper Lee", 10);
+
+        document.getElementById("output").innerHTML = `${book1.getDetails()}<br>${book2.getDetails()}`;
+
+        const ebook1 = new EBook("Digital Revolution", "Jane Smith", 20, 5);
+
+
+        document.getElementById("ebook-output").innerHTML = ebook1.getDetails();
+
+
+        document.getElementById("price").innerHTML = `Price difference: $${Book.comparePrices(book1, book2)}`;
+
+
+    </script>
+</body>
+
+</html>
