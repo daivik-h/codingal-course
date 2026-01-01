@@ -1,0 +1,104 @@
+<!-- Create an Employee class that calculates pay (rate × hours) and includes a static method to calculate the total cost for
+a whole list of workers. Then, create a Manager subclass that inherits from Employee but overrides the pay calculation
+to add a fixed bonus to their final salary. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paycheck Calculator</title>
+</head>
+
+<body>
+    <h1>Paycheck Calculator</h1>
+    <p>Hello welcome to your paycheck calculator <br> Here you can calculate the salary for your employees</p><br><br>
+    <p id="Employee-output"></p>
+    <p id="Manager-output"></p>  
+    <script>
+        class Employee {
+
+            constructor(name, rate, hours) {
+                this.name = name;
+                this.rate = rate;
+                this.hours = hours;
+
+            }
+            getdetails() {
+                return `${this.name} works at a rate of $${this.rate} for ${this.hours} hours.`
+            }
+            static calculatePay(employee) {
+                return employee.rate * employee.hours;
+            }
+        }
+        class Manager extends Employee {
+            constructor(name, rate, hours, bonus) {
+                super(name, rate, hours);
+                this.bonus = bonus;
+            }
+            static calculatePay(manager) {
+                return (manager.rate * manager.hours) + manager.bonus;
+            }
+
+            getdetails() {
+                return `${this.name} is a manager who works at a rate of $${this.rate} for ${this.hours} hours with a bonus of $${this.bonus}.`
+            }
+        }
+        const emp1 = new Employee("Alice", 20, 40);
+        const emp2 = new Employee("Bob", 15, 35);
+        const manager1 = new Manager("Charlie", 25, 40, 500);
+
+        document.getElementById("Employee-output").innerHTML = emp1.getdetails() + " Pay: $" + Employee.calculatePay(emp1);
+        document.getElementById("Employee-output").innerHTML += "<br>" + emp2.getdetails() + " Pay: $" + Employee.calculatePay(emp2);
+        document.getElementById("Manager-output").innerHTML = manager1.getdetails() + " Total Pay: $" + Manager.calculatePay(manager1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
