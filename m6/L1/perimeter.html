@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Calculator</title>
+</head>
+
+<body>
+    <h1>Area Calculator</h1>
+    <p>if you are using this for something other than a circle i not mad im just dissapointed</p>
+2
+    <script>
+
+        var choice = prompt("Welcome To the perimeter Calculator \n Enter Your choice \n 1.Cicle\n 2.Rectangle\n 3.square ")
+
+        if (choice == "1") {
+            var radius = Number(prompt("Enter Radius "))
+            
+
+            alert("Circumference = " + 2 * 3.1415 * radius)
+
+
+        }
+        
+        if (choice == "2") {
+            var length = Number(prompt("Enter Lenght"))
+            var breadth = Number(prompt("Enter Breadth"))
+
+            alert("Perimeter = " + (length + breadth) * 2  )
+
+
+        }
+      if (choice == "3") {
+            var side = Number(prompt("Enter one side "))
+
+
+            alert("Area = " + 4 * side )
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
