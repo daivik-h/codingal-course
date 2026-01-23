@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Area Calculator</title>
 </head>
+
 <body>
-    
+    <h1>Area Calculator</h1>
+
+    <script>
+
+        var choice = prompt("Welcome To the Area Calculator \n Enter Your choice \n 1.triangle\n 2.Circle\n 3.Rectangle\n 4.Sqaure ")
+
+        if (choice == "1") {
+            var choice2 = prompt ("1.Area\n2.perimeter")
+
+            if (choice2 == 1){
+                var height = Number(prompt("Enter Height"))
+                var base = Number(prompt("Base"))
+                alert("Area = " + 0.5 * height * base)
+           }
+            
+        if (choice2 == 2){
+           var side1 = Number(prompt("Enter 1 side"))
+            var side2 = Number(prompt("Enter 2 side"))
+            var side3 = Number(prompt("Enter 3 side"))
+            alert("Perimeter = " + side1 + side2 + side3)
+        }
+          
+
+        }
+        if (choice == "2") {
+            var choice2 = prompt("1.Area\n2.perimeter")
+
+            if (choice2 == 1){
+                var radius = Number(prompt("Enter Radius"))
+
+
+                alert("Area = " + 3.1415 * radius)
+}
+            if (choice2 == 2){
+                var radius = Number(prompt("Enter Radius "))
+
+
+                alert("Circumference = " + 2 * 3.1415 * radius)
+
+            }
+            
+
+
+        }
+        if (choice == "3") {
+                var choice2 = prompt("1.Area\n2.perimeter")
+            if (choice2 == 1){
+                var length = Number(prompt("Enter Lenght"))
+                var breadth = Number(prompt("Enter Breadth"))
+
+                alert("Area = " + length * breadth)
+}
+             if (choice2 == 2){
+            var length = Number(prompt("Enter Lenght"))
+                 var breadth = Number(prompt("Enter Breadth"))
+
+                 alert("Perimeter = " + (length + breadth) * 2)
+
+             }
+
+        }
+        if (choice == "4") {
+            var choice2 = prompt("1.Area\n2.perimeter")
+         if (choice2 == 1){
+                var side = Number(prompt("Enter the Lenght of 1 sides"))
+
+
+                alert("Area = " + side * side)
+}
+            
+            if (choice2 == 2){
+                var side = Number(prompt("Enter one side "))
+
+
+                alert("Area = " + 4 * side)
+}
+
+        }
+
+
+
+
+
+    </script>
 </body>
-</html>
