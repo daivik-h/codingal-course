@@ -16,24 +16,29 @@
             aria-describedby="button-addon2" id="questinput">
         <button class="btn btn-primary" type="button" id="button-addon2" onclick="addsidequest()">ADD</button>
     </div>
+
+    <div>inputtext</div>
+
     <ul id="questlist"></ul>
     <script>
         function addsidequest() {
             var inputtext = document.getElementById("questinput").value;
+
             var li = document.createElement("li")
-            li.innerHTML = inputtext
+            // li.innerHTML = inputtext
+                     
+            li.innerHTML = <div><div>inputtext</div> <div><button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-danger">Danger</button></div> </div>
             document.getElementById("questlist").appendChild(li)
 
         }
 
 
-    
+
+
+
 
     </script>
-
-
-
-
 
 
 

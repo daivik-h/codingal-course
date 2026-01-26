@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+
+<body>
+    <p id="currentTime"></p>
+    <script>
+        function showTime() {
+            document.getElementById('currentTime').innerHTML = new Date().toLocaleString("en-US", { timeZone: "Europe/Copenhagen" });
+        }
+        showTime();
+        setInterval(function () {
+            showTime();
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
