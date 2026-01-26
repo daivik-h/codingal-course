@@ -7,8 +7,15 @@
 </head>
 <body>
   <h1>Change the backround and have fun</h1>  
-  <button onclick="changecolor">press me </button>
-
+  <button onclick="changeColor('lightred')">Light red</button>
+  <button onclick="changeColor('lightblue')">Light blue</button>
+  <button onclick="changeColor('lightgreen')">Light green</button>
+  <script>
+   function changeColor(color) {
+      document.body.style.backgroundColor = color;
+   }
+  
+  </script>
 
 </body>
 </html>
