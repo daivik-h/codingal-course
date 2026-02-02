@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stopwatch Using Java Script</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Stopwatch</h1>
+
+    <div id="display">00:00:00</div>
+    <button type="button" class="btn btn-success" id="startbtn">Start</button>
+    <button type="button" class="btn btn-danger" id="stopbtn">Stop</button>
+    <button type="button" class="btn btn-warning" id="resetbtn">Reset</button>
+
+    <script>
+        let timer = null
+        let starttime = 0
+        let elapsedtime = 0
+        let isRunning = false
+
+        function start() {
+            if (!isRunning) {
+                starttime = Date.now() - elapsedtime
+                timer = setInterval(update, 10)
+                isRunning = true
+                togglebutton()
+            }
+
+        }
+        function stop() {
+            if (isRunning) {
+                clearInterval(timer)
+                elapsedtime = Date.now() - starttime
+                isRunning = false
+                togglebutton()
+
+            }
+
+        }
+        function reset() {
+            clearInterval(timer)
+            starttime = 0
+            elapsedtime = 0
+            isRunning = false
+
+            document.getElementById('display').textContent = '00:00:00'
+            document.getElementById('startbtn').disabled = false
+            document.getElementById('stopbtn').disabled = true
+        }
+        function togglebutton() {
+            document.getElementById('startbtn').disabled = isRunning
+            document.getElementById('stopbtn').disabled = !isRunning
+        }
+        function update() {
+
+            const currentTime = Date.now();
+
+            elapsedtime = starttime - timer;
+
+            // Math to calculate Min / Sec / Milliseconds
+
+            let hours = Math.floor(elapsedtime / (1000 * 60 * 60));
+
+            let minutes = Math.floor(elapsedtime / (1000 * 60) % 60);
+
+            let seconds = Math.floor(elapsedtime / 1000 % 60);
+
+            let milliseconds = Math.floor(elapsedtime % 1000 / 10); // /10 to get 2 digits
+
+            // Formatting strings (adding leading zeros)
+
+            minutes = String(minutes).padStart(2, "0");
+
+            seconds = String(seconds).padStart(2, "0");
+
+            milliseconds = String(milliseconds).padStart(2, "0");
+
+            display.textContent = `${minutes}:${seconds}:${milliseconds}`;
+
+        }
+
+        document.getElementById('startbtn').addEventListener('click', start)
+        document.getElementById('stopbtn').addEventListener('click', stop)
+        document.getElementById('resetbtn').addEventListener('click', reset)
+
+    </script>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
