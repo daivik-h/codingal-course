@@ -22,7 +22,12 @@
         let starttime = 0
         let elapsedtime = 0
         let isRunning = false
+        
+        const display = document.getElementById('display');
+            const startBtn = document.getElementById('startbtn');
+            const stopBtn = document.getElementById('stopbtn');
 
+            stopBtn.disabled = true;
         function start() {
             if (!isRunning) {
                 starttime = Date.now() - elapsedtime
@@ -43,15 +48,15 @@
 
         }
         function reset() {
-            clearInterval(timer)
-            starttime = 0
-            elapsedtime = 0
-            isRunning = false
+                clearInterval(timer);
+                starttime = 0;
+                elapsedtime = 0;
+                isRunning = false;
 
-            document.getElementById('display').textContent = '00:00:00'
-            document.getElementById('startbtn').disabled = false
-            document.getElementById('stopbtn').disabled = true
-        }
+                display.textContent = '00:00:00';
+                startBtn.disabled = false;
+                stopBtn.disabled = true;
+            }
         function togglebutton() {
             document.getElementById('startbtn').disabled = isRunning
             document.getElementById('stopbtn').disabled = !isRunning
@@ -60,7 +65,7 @@
 
             const currentTime = Date.now();
 
-            elapsedtime = starttime - timer;
+            elapsedtime = currentTime - starttime;
 
             // Math to calculate Min / Sec / Milliseconds
 
