@@ -22,12 +22,12 @@
         let starttime = 0
         let elapsedtime = 0
         let isRunning = false
-        
-        const display = document.getElementById('display');
-            const startBtn = document.getElementById('startbtn');
-            const stopBtn = document.getElementById('stopbtn');
 
-            stopBtn.disabled = true;
+        const display = document.getElementById('display');
+        const startBtn = document.getElementById('startbtn');
+        const stopBtn = document.getElementById('stopbtn');
+
+        stopBtn.disabled = true;
         function start() {
             if (!isRunning) {
                 starttime = Date.now() - elapsedtime
@@ -48,15 +48,15 @@
 
         }
         function reset() {
-                clearInterval(timer);
-                starttime = 0;
-                elapsedtime = 0;
-                isRunning = false;
+            clearInterval(timer);
+            starttime = 0;
+            elapsedtime = 0;
+            isRunning = false;
 
-                display.textContent = '00:00:00';
-                startBtn.disabled = false;
-                stopBtn.disabled = true;
-            }
+            display.textContent = '00:00:00';
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+        }
         function togglebutton() {
             document.getElementById('startbtn').disabled = isRunning
             document.getElementById('stopbtn').disabled = !isRunning
@@ -94,9 +94,6 @@
         document.getElementById('resetbtn').addEventListener('click', reset)
 
     </script>
-
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

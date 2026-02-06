@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dice Roller</title>
+    <style>
+
+    img{width: 200px;}
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Roll The Dice If you Dare</h1>
+    <h4 id="result"></h4>
+    <img src="Copilot_20260206_174845.png" alt="" id="thenumber">
+    <button type="button" class="btn btn-success" onclick="roll()">Roll</button>
+
+    <script>
+        function roll() {
+            let imageelement =
+                document.getElementById("thenumber")
+            let randomnumber = Math.floor(Math.random() * 6) + 1;
+            imageelement.src = "side"+randomnumber+".png"
+            document.getElementById("result").innerText="You Rolled A "+randomnumber
+            imgElement.style.transform = "rotate(15deg) scale(1.1)";
+
+            setTimeout(() => {
+
+                imgElement.style.transform = "rotate(0deg) scale(1)";
+
+            }, 200);
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
