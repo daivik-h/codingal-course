@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FanZone | The Ultimate League Hub</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- CUSTOM CSS --- */
+        body {
+            transition: background-color 0.3s, color 0.3s;
+            padding-bottom: 100px; /* Space for footer */
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522778119026-d647f0565c6a?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            border-radius: 0 0 20px 20px;
+        }
+
+        /* Player Cards */
+        .player-card {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .player-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        .dark-mode .card {
+            background-color: #2d2d2d;
+            color: white;
+            border-color: #444;
+        }
+        .dark-mode .modal-content {
+            background-color: #2d2d2d;
+            color: white;
+        }
+
+        /* --- LIVE CHAT WIDGET CSS --- */
+        #chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 320px;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .chat-header {
+            background-color: #0d6efd;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-body {
+            height: 250px;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: #f8f9fa;
+            display: flex; /* Flex to stack messages */
+            flex-direction: column;
+        }
+        
+        /* Dark mode overrides for chat */
+        .dark-mode #chat-widget { background: #2d2d2d; }
+        .dark-mode .chat-body { background: #1a1a1a; }
+        .dark-mode .chat-input-area { background: #2d2d2d; border-top: 1px solid #444; }
+
+        .chat-message {
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            border-radius: 15px;
+            max-width: 80%;
+            font-size: 0.9rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .msg-bot {
+            background-color: #e9ecef;
+            color: black;
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+        
+        .msg-user {
+            background-color: #0d6efd;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .chat-input-area {
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            gap: 5px;
+            background: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-futbol me-2"></i>FanZone</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#match-center">Match Center</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#roster">Teams</a></li>
+                    <li class="nav-item ms-3">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                            <label class="form-check-label text-light" for="darkModeSwitch"><i class="fas fa-moon"></i></label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">The Season Finale is Here</h1>
+            <p class="lead">Watch the highlights, vote for the winner, and chat live with fans.</p>
+            <a href="#match-center" class="btn btn-primary btn-lg mt-3">Go to Match Center</a>
+        </div>
+    </header>
+
+    <div class="container my-5">
+        
+        <section id="match-center" class="mb-5">
+            <h2 class="text-center mb-4"><i class="fas fa-chart-bar text-primary"></i> Who Will Win?</h2>
+            <div class="card p-4 shadow-sm">
+                <div class="row align-items-center text-center">
+                    <div class="col-md-5">
+                        <h3 class="text-danger">Lions FC</h3>
+                        <button class="btn btn-outline-danger w-100 vote-btn" data-team="lions">Vote Lions</button>
+                    </div>
+                    <div class="col-md-2 fw-bold fs-3">VS</div>
+                    <div class="col-md-5">
+                        <h3 class="text-primary">Eagles United</h3>
+                        <button class="btn btn-outline-primary w-100 vote-btn" data-team="eagles">Vote Eagles</button>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <div class="progress" style="height: 25px;">
+                        <div id="bar-lions" class="progress-bar bg-danger" role="progressbar" style="width: 50%">50%</div>
+                        <div id="bar-eagles" class="progress-bar bg-primary" role="progressbar" style="width: 50%">50%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-5">
+
+        <section id="roster">
+            <h2 class="mb-4">Featured Players</h2>
+            <div class="row" id="roster-container"></div>
+        </section>
+
+    </div>
+
+    <div id="chat-widget">
+        <div class="chat-header" onclick="toggleChat()">
+            <span><i class="fas fa-comments me-2"></i>Live Fan Chat <span class="badge bg-danger ms-1">LIVE</span></span>
+            <i class="fas fa-chevron-down" id="chat-icon"></i>
+        </div>
+        <div id="chat-content-wrapper">
+            <div class="chat-body" id="chat-box">
+                <div class="chat-message msg-bot">Welcome to the live match chat! ⚽</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" class="form-control form-control-sm" placeholder="Say something...">
+                <button class="btn btn-primary btn-sm" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="playerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalPlayerName">Player Name</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalPlayerImg" src="" class="img-fluid rounded mb-3 w-100" style="height:200px; object-fit:cover;">
+                    <p><strong>Team:</strong> <span id="modalPlayerTeam"></span></p>
+                    <p><strong>Position:</strong> <span id="modalPlayerRole"></span></p>
+                    <p><strong>Season Rating:</strong> <span id="modalPlayerRating" class="badge bg-success"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // --- 1. DATA: The Players Array ---
+        const players = [
+            { id: 1, name: "Leo Striker", team: "Lions FC", role: "Forward", rating: 92, img: "https://placehold.co/400x300/e74c3c/white?text=Leo" },
+            { id: 2, name: "Sam Goalie", team: "Eagles Utd", role: "Goalkeeper", rating: 88, img: "https://placehold.co/400x300/3498db/white?text=Sam" },
+            { id: 3, name: "Max Speed", team: "Lions FC", role: "Winger", rating: 85, img: "https://placehold.co/400x300/e74c3c/white?text=Max" },
+            { id: 4, name: "Jay Wall", team: "Eagles Utd", role: "Defender", rating: 90, img: "https://placehold.co/400x300/3498db/white?text=Jay" },
+        ];
+
+        // --- 2. RENDER LOGIC: Create Cards ---
+        const rosterContainer = document.getElementById('roster-container');
+
+        function renderRoster() {
+            rosterContainer.innerHTML = ''; // Clear existing
+            players.forEach(player => {
+                const col = document.createElement('div');
+                col.className = 'col-md-3 mb-4';
+                col.innerHTML = `
+                    <div class="card h-100 player-card shadow-sm" onclick="openModal(${player.id})">
+                        <img src="${player.img}" class="card-img-top" alt="${player.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${player.name}</h5>
+                            <p class="card-text text-muted">${player.team}</p>
+                            <span class="badge bg-dark">${player.role}</span>
+                        </div>
+                    </div>
+                `;
+                rosterContainer.appendChild(col);
+            });
+        }
+
+        // --- 3. MODAL LOGIC: Show Details ---
+        const playerModal = new bootstrap.Modal(document.getElementById('playerModal'));
+
+        function openModal(id) {
+            // Find player in array
+            const player = players.find(p => p.id === id);
+            
+            // Inject data into Modal
+            document.getElementById('modalPlayerName').innerText = player.name;
+            document.getElementById('modalPlayerTeam').innerText = player.team;
+            document.getElementById('modalPlayerRole').innerText = player.role;
+            document.getElementById('modalPlayerRating').innerText = player.rating;
+            document.getElementById('modalPlayerImg').src = player.img;
+
+            // Show Modal
+            playerModal.show();
+        }
+
+        // --- 4. VOTING LOGIC ---
+        let votes = { lions: 50, eagles: 50 }; // Initial dummy values
+
+        // Attach event listeners to buttons
+        document.querySelectorAll('.vote-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const team = e.target.getAttribute('data-team');
+                
+                // Simple logic: add 5 votes to clicked team
+                votes[team] += 5;
+                updateProgressBars();
+            });
+        });
+
+        function updateProgressBars() {
+            const total = votes.lions + votes.eagles;
+            const lionPercent = Math.round((votes.lions / total) * 100);
+            const eaglePercent = Math.round((votes.eagles / total) * 100);
+
+            // Update DOM
+            const barLions = document.getElementById('bar-lions');
+            const barEagles = document.getElementById('bar-eagles');
+
+            barLions.style.width = `${lionPercent}%`;
+            barLions.innerText = `${lionPercent}%`;
+            
+            barEagles.style.width = `${eaglePercent}%`;
+            barEagles.innerText = `${eaglePercent}%`;
+        }
+
+        // --- 5. CHAT SIMULATION LOGIC ---
+        const chatBox = document.getElementById('chat-box');
+        const chatInput = document.getElementById('chat-input');
+        
+        // Random Bot Phrases
+        const botPhrases = [
+            "What a game!", "Ref is blind 😡", "Go Lions!", 
+            "Eagles playing defense?", "Can't believe that miss...", 
+            "MVP for sure", "Scores???"
+        ];
+
+        // Function to add a message bubble
+        function addMessage(text, type) {
+            const div = document.createElement('div');
+            div.className = `chat-message ${type}`;
+            div.innerText = text;
+            chatBox.appendChild(div);
+            // Auto scroll to bottom
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // User sends message
+        function sendMessage() {
+            const text = chatInput.value;
+            if (text.trim() === "") return;
+            addMessage(text, "msg-user");
+            chatInput.value = "";
+        }
+
+        // Allow "Enter" key to send
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // Bot simulation (Runs every 3-7 seconds)
+        function startBot() {
+            setInterval(() => {
+                const randomTime = Math.random() * 4000 + 2000;
+                setTimeout(() => {
+                    const randomPhrase = botPhrases[Math.floor(Math.random() * botPhrases.length)];
+                    addMessage(randomPhrase, "msg-bot");
+                }, randomTime);
+            }, 5000);
+        }
+
+        // Toggle Chat Open/Close
+        let chatOpen = true;
+        function toggleChat() {
+            const wrapper = document.getElementById('chat-content-wrapper');
+            const icon = document.getElementById('chat-icon');
+            if(chatOpen) {
+                wrapper.style.display = 'none';
+                icon.className = "fas fa-chevron-up";
+            } else {
+                wrapper.style.display = 'block';
+                icon.className = "fas fa-chevron-down";
+            }
+            chatOpen = !chatOpen;
+        }
+
+        // --- 6. DARK MODE & INIT ---
+        const toggleSwitch = document.getElementById('darkModeSwitch');
+        
+        // Check LocalStorage on load
+        if(localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            toggleSwitch.checked = true;
+        }
+
+        toggleSwitch.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            // Save preference
+            if(document.body.classList.contains('dark-mode')){
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // INITIALIZE APP
+        renderRoster();
+        updateProgressBars();
+        startBot();
+
+    </script>
+</body>
+</html>

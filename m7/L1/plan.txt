@@ -1,0 +1,93 @@
+Class 1: The Stadium Foundation (Layout & Grid)
+Goal: Master the Bootstrap grid and navigation structure.
+
+Concepts: CDN Setup, Navbar, Footer, Bootstrap Grid System (container, row, col).
+
+The Build:
+
+Set up index.html with Bootstrap 5.
+
+Create a responsive Sticky Navbar with a brand logo and links (Home, Teams, Match Center).
+
+Build a Hero Section (Jumbotron style) with a background image of a stadium and a "Get Tickets" Call-to-Action button.
+
+Create a footer with social icons.
+
+Homework/Challenge: Customize the Hero section with a gradient overlay using custom CSS.
+
+Class 2: The Highlight Reel (Components & Media)
+Goal: Use complex Bootstrap components to display visual content.
+
+Concepts: Carousels, Flexbox utilities, Responsive Images.
+
+The Build:
+
+Highlights Carousel: Implement a Bootstrap Carousel sliding through 3 top "Match Moments" (images/captions).
+
+Upcoming Matches Section: Use the Grid to create 3 placeholders for "Next Match" cards (we will make these dynamic later, but built statically for now to understand the layout).
+
+Video Embed: Embed a YouTube highlight clip using Bootstrap's Ratio helper.
+
+Class 3: The Roster (Dynamic JS & Data Structures)
+Goal: Move from static HTML to Dynamic HTML using JavaScript.
+
+Concepts: Arrays of Objects, DOM Manipulation (document.createElement, innerHTML), forEach loops.
+
+The Build:
+
+Create a data.js file. Create an array of objects representing players (e.g., { name: "Leo", team: "Lions", img: "url", stats: 95 }).
+
+The Render Function: Write a JS function that loops through this array.
+
+Dynamic Cards: For each player, generate a Bootstrap Card HTML string and inject it into a #player-container div in the HTML.
+
+Why this is intermediate: Students stop hardcoding HTML and start "rendering" it, a key concept for React/Vue later.
+
+Class 4: Match Day Logic (Interactivity & Modals)
+Goal: Add user interaction and event handling.
+
+Concepts: Event Listeners (click), Modals, Conditional Logic.
+
+The Build:
+
+Player Detail Modal: When a user clicks a "View Stats" button on a player card (created in Class 3), open a Bootstrap Modal.
+
+Data Passing: Use JS to populate the Modal with the specific data of the player clicked (Name, Position, detailed bio).
+
+Match Voting System: Create a "Who will win?" section. Add two buttons (Team A vs. Team B). Use JS to increment a counter and update a progress bar to show the live "Fan Prediction" percentages.
+
+Class 5: The "Live" Fan Chat (DOM Simulation)
+Goal: Build the "Wow" feature—a real-time chat simulation.
+
+Concepts: Input value handling, setTimeout, Appending children.
+
+The Build:
+
+UI: Build a fixed sidebar or bottom-right chat widget (Scrollable message area, Input field, Send button).
+
+Send Function: When the student types a message and hits enter:
+
+Get the text value.
+
+Create a styled <div> bubble.
+
+Append it to the chat window.
+
+The Bot Simulation: Create an array of random phrases ("What a goal!", "Ref is blind!", "Go Team!").
+
+Automation: Use setInterval or setTimeout to randomly inject these messages into the chat every few seconds, making the site feel "alive" with other fans.
+
+Class 6: Polish & Persistence (LocalStorage & Deploy)
+Goal: Professional touches and saving user preferences.
+
+Concepts: LocalStorage API, Dark Mode, Deployment.
+
+The Build:
+
+Dark Mode Toggle: Add a switch in the Navbar. Use JS to toggle a .dark-theme class on the <body>.
+
+Persistence: Save the user's "Dark Mode" preference and their "Vote" from Class 4 to localStorage so it stays after refreshing the page.
+
+Final Polish: Check mobile responsiveness.
+
+Deployment: Upload the project to GitHub Pages or Netlify so they can share the link with friends.
