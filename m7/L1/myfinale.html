@@ -7,40 +7,48 @@
     <title>The Football Fanbase</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Football Fanbase</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Bet Center</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">This Season's best Players</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-expanded="false">
-                        Dark Or light Mode
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Light Mode</a>
-                        <a class="dropdown-item" href="#">Dark Mode</a>
 
-                    </div>
-                </li>
-            </ul>
+<body>
+    <nav class="navbar bg-dark border-bottom border-body navbar-expand-lg bg-body-teritary fixed-top"
+        data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Fan base</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Bet Center</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Featured Players</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked"
+                                checked>
+                        </div> -->
+                        <div class="form-check form-switch pt-2">
+
+                            <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+
+                            <label class="form-check-label text-light" for="darkModeSwitch"><i
+                                    class="fas fa-moon"></i></label>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </nav><br><br>
+    </nav>
     <section id="hero" class="jumbotron p-5 text-center p-3 mb-2 bg-secondary text-white rounded-bottom-4">
         <h1 class="display-4 fw-bold">Finale Time !!!</h1>
         <p class="lead">Folks We are here It Is the season Finale WHO WILL WIN!</p>
@@ -49,67 +57,60 @@
         <a class="btn btn-success btn-lg" href="#" role="button">Go to Bet Center</a>
     </section><br><br><br>
     <section id="poll" class="p-5 text-center">
-        <p>WHO WILL WIN!</p>
-        <div><div class="d-flex justify-content-around"><div><label class="fw-bold text-danger" for="barca">Barcelona</label></div><div><label for="spacing"></label></div><div><label class="fw-bold text-warning" for="realmadrid">Real Madrid</label></div></div>
+        <h3 class="fw-bold">WHO WILL WIN!</h3>
+        <div>
             <div class="d-flex justify-content-around">
-                <div><button type="button" class="btn btn-outline-danger">Vote Barcelona</button></div>
-                <div>VS</div>
-                <div><button type="button" class="btn btn-outline-warning">Vote Real Madrid</button></div>
+                <div><label class="fw-bold text-danger fs-4" for="barca">Barcelona</label></div>
+                <div><label for="spacing"></label></div>
+                <div><label class="fw-bold text-warning fs-4" for="realmadrid">Real Madrid</label></div>
+            </div>
+            <div class="d-flex justify-content-around">
+                <div><button type="button" class="btn btn-outline-danger fw-bold">Vote Barcelona</button></div>
+                <div class="fw-bold fs-3">VS</div>
+                <div><button type="button" class="btn btn-outline-warning fw-bold">Vote Real Madrid</button></div>
             </div><br>
 
-            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
-                aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar" style="width: 50%">50%</div>
+            <div class="progress" role="progressbar" aria-label="barcelona" aria-valuenow="50" aria-valuemin="0"
+                aria-valuemax="100">
+                <div class="progress-bar text-bg-danger fw-bold" style="width: 50%">50%</div>
             </div><br><br>
 
         </div>
     </section>
 
     <section id="featured" class="p-5 text-center">
-        <h3>Season Players</h3>
+        <h3 class="fw-bold">Season Players</h3>
         <br><br>
         <div id="container" class="d-flex justify-content-around">
             <div class="card col-md-3 h-100" style="width: 18rem;">
-                <img src="olise.webp" class="card-img-top" alt="...">
+                <img src="OIP.webp" class="card-img-top" alt="..." id="olise" style="height: 380px;">
                 <div class="card-body">
                     <h5 class="card-title">Michael Olise</h5>
-                    <p class="card-text">Michael Olise is a creative winger known for sharp dribbling, precise passing,
-                        intelligent
-                        movement, and game‑changing
-                        attacking flair.</p>
+                    <p class="card-text"></p>
                     <a href="#" class="btn btn-primary">Stats</a>
                 </div>
             </div>
-            <div class="card h-100" style="width: 18rem;">
-                <img src="kylian.webp" class="card-img-top" alt="...">
+            <div  class="card h-100" style="width: 18rem;">
+                <img src="kylian.png" class="card-img-top" alt="..." style=" height: 380px;">
                 <div class="card-body">
                     <h5 class="card-title">Kylian Mbappé</h5>
-                    <p class="card-text">Explosive forward with blistering pace, elite finishing, creative movement,
-                        relentless
-                        ambition, and a proven record of
-                        decisive performances.</p>
+                    <p class="card-text"></p>
                     <a href="#" class="btn btn-primary">Stats</a>
                 </div>
             </div>
             <div class="card h-100" style="width: 18rem;">
-                <img src="haalnad.webp" class="card-img-top" alt="...">
+                <img src="hallandana.jfif" class="card-img-top" alt="..." style=" height: 380px;">
                 <div class="card-body">
                     <h5 class="card-title">Erling Haaland</h5>
-                    <p class="card-text">Erling Haaland is a dominant striker with explosive power, ruthless finishing,
-                        relentless
-                        movement, and unmatched
-                        physical presence in attack.</p>
+                    <p class="card-text"></p>
                     <a href="#" class="btn btn-primary">Stats</a>
                 </div>
             </div>
             <div class="card h-100" style="width: 18rem;">
-                <img src="vithinia.webp" class="card-img-top" alt="...">
+                <img src="vithinaia.jfif" class="card-img-top" alt="..." style=" height: 380px;">
                 <div class="card-body">
                     <h5 class="card-title">Vitinha</h5>
-                    <p class="card-text">Vitinha is a dynamic midfielder with sharp vision, quick feet, intelligent
-                        positioning,
-                        creative passing, and relentless
-                        work rate throughout matches.</p>
+                    <p class="card-text"></p>
                     <a href="#" class="btn btn-primary">Stats</a>
                 </div>
             </div>
