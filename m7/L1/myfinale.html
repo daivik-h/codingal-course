@@ -8,6 +8,124 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        #chat-widget {
+
+            position: fixed;
+
+            bottom: 20px;
+
+            right: 20px;
+
+            width: 320px;
+
+            z-index: 1000;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+            display: flex;
+
+            flex-direction: column;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            background: white;
+
+        }
+
+
+        .chat-header {
+
+            background-color: #0d6efd;
+
+            color: white;
+
+            padding: 10px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+        }
+
+        .chat-body {
+
+            height: 250px;
+
+            overflow-y: auto;
+
+            padding: 10px;
+
+            background-color: #f8f9fa;
+
+            display: flex;
+            /* Flex to stack messages */
+
+            flex-direction: column;
+
+        }
+
+        .chat-message {
+
+            margin-bottom: 8px;
+
+            padding: 8px 12px;
+
+            border-radius: 15px;
+
+            max-width: 80%;
+
+            font-size: 0.9rem;
+
+            animation: fadeIn 0.3s ease;
+
+        }
+
+        .msg-bot {
+
+            background-color: #e9ecef;
+
+            color: black;
+
+            align-self: flex-start;
+
+            border-bottom-left-radius: 2px;
+
+        }
+
+
+        .msg-user {
+
+            background-color: #0d6efd;
+
+            color: white;
+
+            align-self: flex-end;
+
+            border-bottom-right-radius: 2px;
+
+        }
+
+        .chat-input-area {
+
+            padding: 10px;
+
+            border-top: 1px solid #ddd;
+
+            display: flex;
+
+            gap: 5px;
+
+            background: white;
+
+        }
+    </style>
 </head>
 
 
@@ -26,10 +144,10 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Bet Center</a>
+                        <a class="nav-link" href="#poll">Bet Center</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Featured Players</a>
+                        <a class="nav-link" href="#featured">Featured Players</a>
                     </li>
                     <li class="nav-item">
                         <!-- <div class="form-check form-switch">
@@ -81,109 +199,230 @@
     <section id="featured" class="p-5 text-center">
         <h3 class="fw-bold">Season Players</h3>
         <br><br>
-        <div id="container" class="d-flex justify-content-around">
-            <div class="card col-md-3 h-100" style="width: 18rem;">
+        <div id="container1" class="d-flex justify-content-around">
+            <div class="card col-md-3 h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"
+                data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="OIP.webp" class="card-img-top" alt="..." id="olise" style="height: 380px;">
                 <div class="card-body">
                     <h5 class="card-title">Michael Olise</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Stats</a>
+                    <p class="card-text">FC Bayern Munich</p>
+                    <span class="badge text-bg-dark">Winger</span>
                 </div>
             </div>
-            <div  class="card h-100" style="width: 18rem;">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Michael Olise</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="olies.jpg" alt="" style="width: 350px ; height: 350px;">
+                            <p><b>Team</b>: FC Bayern Munich </p>
+                            <p><b>Position</b>: Winger</p>
+                            <p><b>Season Rating</b>: 82</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="countainer1" class="card h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"
+                data-bs-toggle="modal" data-bs-target="#exampleModal1">
                 <img src="kylian.png" class="card-img-top" alt="..." style=" height: 380px;">
                 <div class="card-body">
                     <h5 class="card-title">Kylian Mbappé</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Stats</a>
+                    <p class="card-text">Real Madrid</p>
+                    <span class="badge text-bg-dark">Forward</span>
                 </div>
             </div>
-            <div class="card h-100" style="width: 18rem;">
+            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel1">Kylian Mbappé</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="kylian.png" alt="" style="width: 350px ; height: 350px;">
+                            <p><b>Team</b>: Real Madrid </p>
+                            <p><b>Position</b>: Forward</p>
+                            <p><b>Season Rating</b>: 91</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded " style="width: 18rem;"
+                data-bs-toggle="modal" data-bs-target="#exampleModal2">
                 <img src="hallandana.jfif" class="card-img-top" alt="..." style=" height: 380px;">
                 <div class="card-body">
                     <h5 class="card-title">Erling Haaland</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Stats</a>
+                    <p class="card-text">Manchester City</p>
+                    <span class="badge text-bg-dark">Forward</span>
                 </div>
             </div>
-            <div class="card h-100" style="width: 18rem;">
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel2">Erling Haaland</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="hallandana.jfif" alt="" style="width: 350px ; height: 350px;">
+                            <p><b>Team</b>: Manchester City </p>
+                            <p><b>Position</b>: Forward</p>
+                            <p><b>Season Rating</b>: 90</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card h-100 shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 18rem;"
+                data-bs-toggle="modal" data-bs-target="#exampleModal3">
                 <img src="vithinaia.jfif" class="card-img-top" alt="..." style=" height: 380px;">
                 <div class="card-body">
                     <h5 class="card-title">Vitinha</h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Stats</a>
+                    <p class="card-text">Paris Saint-Germain FC</p>
+                    <span class="badge text-bg-dark">Midfielder</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel3">Vitinha</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="vithinaia.jfif" alt="" style="width: 350px ; height: 350px;">
+                        <p><b>Team</b>: Paris Saint-Germain FC </p>
+                        <p><b>Position</b>: Midfielder</p>
+                        <p><b>Season Rating</b>: 85</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <section id="chat-widget">
+        <div class="chat-header" onclick="toggleChat()"><span><i class="fas fa-comments me-2"></i>Live Fan Chat <span
+                    class="badge bg-danger ms-1">LIVE</span></span>
 
+            <i class="fas fa-chevron-down" id="chat-icon"></i>
+        </div>
+        <div id="chat-content-wrapper">
+            <div id="chat-box" class="chat-body">
+                <div class="chat-message msg-bot">
+                    welcome
+                </div>
+            </div>
+            <div class="chat-input-area"><input type="text" id="chat-input" class="form-control form-control-sm"
+                    placeholder="Say something...">
 
+                <button class="btn btn-primary btn-sm" onclick="sendMessage()"><i
+                        class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
 
+    </section>
 
+    <script>
+        
+        const chatBox = document.getElementById("chat-box")
+        const chatInput = document.getElementById("chat-input")
+        const botPhrases = [
 
+            "What a game!", "Ref is blind 😡", "Go Lions!",
 
+            "Eagles playing defense?", "Can't believe that miss...",
 
+            "MVP for sure", "Scores???"
 
+        ];
+        function addMeassage(text, type) {
+            const div = document.createElement("div")
+            div.className = `chat-message ${type}`;
 
+            div.innerText = text;
 
+            chatBox.appendChild(div);
 
 
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
 
+        function sendMessage() {
+            const text = chatInput.value;
 
+            if (text.trim() === "") return;
 
+            addMessage(text, "msg-user");
 
+            chatInput.value = "";
+        }
 
+        chatInput.addEventListener('keypress', (e) => {
 
+            if (e.key === 'Enter') sendMessage();
 
+        });
 
+        function startBot() {
 
+            setInterval(() => {
 
+                const randomTime = Math.random() * 4000 + 2000;
 
+                setTimeout(() => {
 
+                    const randomPhrase = botPhrases[Math.floor(Math.random() * botPhrases.length)];
 
+                    addMessage(randomPhrase, "msg-bot");
 
+                }, randomTime);
 
+            }, 5000);
 
+        }
+        
+        let chatOpen = true
+            const icon = document.getElementById('chat-icon');
+            function toggleChat() {
+                const wrapper = document.getElementById("chat-content-wrapper")
+                if (chatOpen) {
+                    wrapper.style.display = "none"
+                    icon.className = "fas fa-chevron-up";
+                }
 
+                else {
+                    wrapper.style.display = "block"
+                    icon.className = "fas fa-chevron-down";
+                }
 
+                chatOpen = !chatOpen
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
+            
+        startBot()    
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
